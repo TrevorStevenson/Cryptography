@@ -1,24 +1,26 @@
 #!/usr/bin/env python3
 
 def main():
-    table = [0 for i in range(26)]
+    table = {}
     with open("cipher.txt", "r") as f:
         for line in f:
             line = line.replace(" ", "")
             line = line.strip("\n")
             for letter in line:
-                letter = letter.upper()
-                table[ord(letter) - ord("A")] += 1
+                if letter in table:
+                    table[letter] += 1
+                else:
+                    table[letter] = 1
 
     output_table(table)
 
 def output_table(table):
+    print(table)
     with open("plain.txt", "a") as f:
         f.truncate(0)
-        for index, item in enumerate(table):
-            if item == 0:
-                continue
-            f.write(chr(ord("A") + index) + " " + str(item) + "\n")
+        sorted_table = [value for value in sorted(table, key=table.__getitem__, reverse=True)]
+        for item in sorted_table:
+            f.write(item + " " + str(table[item]) + "\n")
 
 if __name__ == "__main__":
     main()

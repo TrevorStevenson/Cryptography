@@ -12,7 +12,12 @@ def gcd(a, b):
     if b == 0:
         return g, u, 0
 
-    return g, u, (g - a * u) // b
+    v = (g - a * u) // b
+
+    while u <= 0:
+        u, v = u + b // g, v - a // g
+
+    return g, u, v
 
 if __name__ == "__main__":
     print("A: ", end="")

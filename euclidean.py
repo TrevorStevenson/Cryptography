@@ -9,6 +9,9 @@ def gcd(a, b):
         s = u - q * x
         u, g, x, y = x, y, s, t
 
+    if b == 0:
+        return g, u, 0
+
     return g, u, (g - a * u) // b
 
 if __name__ == "__main__":
@@ -16,6 +19,9 @@ if __name__ == "__main__":
     a = int(input())
     print("B: ", end="")
     b = int(input())
-    g, u, v = map(str, gcd(a, b))
-    print("The GCD is " + g)
-    print(str(a) + "*"+ u + " + " + str(b) + "*" + v + " = " + g)
+    if a == 0 and b == 0:
+        print("The GCD is not defined.")
+    else:
+        g, u, v = map(str, gcd(a, b))
+        print("The GCD is " + g)
+        print(str(a) + "*"+ u + " + " + str(b) + "*" + v + " = " + g)

@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 
 def gcd(a, b):
+    if a % b == 0:
+        return a
+    return gcd(b, a % b)
+
+def extended_gcd(a, b):
     u, g, x, y = 1, a, 0, b
 
     while y != 0:
@@ -12,12 +17,16 @@ def gcd(a, b):
     if b == 0:
         return g, u, 0
 
+    if u <= 0:
+        u %= b // g
+
     v = (g - a * u) // b
 
-    while u <= 0:
-        u, v = u + b // g, v - a // g
-
     return g, u, v
+
+def inverse(x, p):
+    g, u, v = extended_gcd(x, p)
+    return u
 
 if __name__ == "__main__":
     print("A: ", end="")
@@ -27,6 +36,6 @@ if __name__ == "__main__":
     if a == 0 and b == 0:
         print("The GCD is not defined.")
     else:
-        g, u, v = map(str, gcd(a, b))
+        g, u, v = map(str, extended_gcd(a, b))
         print("The GCD is " + g)
         print(str(a) + "*"+ u + " + " + str(b) + "*" + v + " = " + g)

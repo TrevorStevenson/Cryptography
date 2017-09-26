@@ -33,6 +33,24 @@ def discrete_log(g, h, p):
             print(powers_of_g[str(inv_pwrs[i])] + i * n)
             return
 
+def order(n, p):
+    for i in range(1, p):
+        if pow(n, i, p) == 1:
+            print(i)
+            return
+
+def factor(n):
+    factors = []
+    max_val = int(math.sqrt(n))
+    i = 2
+    while n > 1:
+        if n % i == 0:
+            factors.append(i)
+            n /= i
+        else:
+            i += 1
+    print(factors)
+
 if __name__ == "__main__":
     print("g: ", end="")
     g = int(input())

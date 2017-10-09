@@ -18,10 +18,10 @@ def discrete_log(g, h, p):
     # lookup is therefore only backwards in the list.
     for i in range(0, n+1):
         pwr = pow(g, i, p)
-        powers_of_g[str(pwr)] = i
+        powers_of_g[pwr] = i
         inv_power = ( h * euclidean.inverse(pow(g, n * i, p), p) ) % p
-        if str(inv_power) in powers_of_g:
-            print(powers_of_g[str(inv_power)] + i * n)
+        if inv_power in powers_of_g:
+            print(powers_of_g[inv_power] + i * n)
             return
         inv_pwrs.append(inv_power)
 
@@ -29,8 +29,8 @@ def discrete_log(g, h, p):
     # to not find a match. The lists are now fully built,
     # so traverse the list again.
     for i in range(n):
-        if str(inv_pwrs[i]) in powers_of_g:
-            print(powers_of_g[str(inv_pwrs[i])] + i * n)
+        if inv_pwrs[i] in powers_of_g:
+            print(powers_of_g[inv_pwrs[i]] + i * n)
             return
 
 def order(n, p):

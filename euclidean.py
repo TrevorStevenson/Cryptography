@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 
 def gcd(a, b):
-    if a % b == 0:
+    if a < b:
+        t, a = a, b
+        b = t
+
+    if b == 0:
         return a
     return gcd(b, a % b)
 

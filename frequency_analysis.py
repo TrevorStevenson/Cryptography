@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
 
-frequency_single = "etaoinsrhldcumfpgwybvkxjqz"
-frequency_double = "th he an in er on re ed nd ha at en es of nt ea ti to io le is ou ar as de rt ve"
-frequency_triple = "the and tha ent ion tio for nde has nce tis oft men"
-
 def main():
     single = {}
     double = {}
@@ -29,10 +25,6 @@ def main():
                         single[line[i]] += 1
                     else:
                         single[line[i]] = 1
-
-    output_table(single, frequency_single, "single.txt")
-    output_table(double, frequency_double.split(" "), "double.txt")
-    output_table(triple, frequency_triple.split(" "), "triple.txt")
 
 def output_table(table, comparison, file_name):
     with open(file_name, "a") as f:

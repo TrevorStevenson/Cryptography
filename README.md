@@ -1,10 +1,10 @@
-Usage guidelines:
+## Usage guidelines:
 
 You will need Python 3 installed to run these scripts. You can download it at www.python.org/downloads.
 
 Download the project, open terminal and cd into the downloaded project folder.
 
-Frequency Analysis Tool:
+### Frequency Analysis Tool:
 
 Runs frequency analysis on characters, digraphs, and trigraphs in a ciphertext to help decipher a simple substitution cipher.
 
@@ -13,7 +13,7 @@ Runs frequency analysis on characters, digraphs, and trigraphs in a ciphertext t
 3. Run ./frequency_analysis.py
 4. View the output in single.txt, double.txt, and triple.txt
 
-Extended Euclidean Algorithm:
+### Extended Euclidean Algorithm:
 
 Gives the greatest common divisor and expresses it as a linear combination of the two numbers. Also calculates inverses mod n.
 
@@ -23,7 +23,7 @@ Gives the greatest common divisor and expresses it as a linear combination of th
 4. Enter your second number and press enter
 5. View the output in the terminal
 
-Discrete Log Tool:
+### Discrete Log Tool:
 
 Solves the discrete logarithm problem that is important for cracking public key cryptosystems like ElGamal.
 
